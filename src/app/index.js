@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('home', {
         url: '/',
@@ -14,5 +14,9 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         controller: 'PageCtrl'
       });
     $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
   })
 ;
