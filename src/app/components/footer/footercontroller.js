@@ -1,10 +1,9 @@
-'use strict';
+'user strict';
 
-function MainCtrl($scope) {
-
+function FooterCtrl($scope) {
     var date = new Date();
     $scope.year = date.getFullYear();
-
 }
+
 angular.module('puzzle')
-    .controller('MainCtrl', MainCtrl);
+    .controller('FooterCtrl', FooterCtrl);

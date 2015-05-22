@@ -1,33 +1,180 @@
-<div class="container">
+<div class="content">
+  <div class="container row">
+    <div class="col-sm-9">
+      <article>
+        <span class="featured">Новость дня</span>
+        <h2>
+          <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quod fugit eveniet.</a>
+        </h2>
+        
+        <div class="img text-center">
+          <a href="#">
+            <img src="/images/image.jpeg" alt="">
+          </a>
+        </div>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam iusto vero debitis, deleniti error consequuntur soluta quam aut velit dolore reprehenderit fugit quod totam in!</p>
+        
+        <div class="action clearfix">
+          <div class="left-half text-left">
+            <a href="#" class="next">Читать далее &#8594;</a>
+          </div>
+          <div class="right-half text-right">
+            <span class="time">1 May 2015</span>
+            <span class="comments">
+              <a href="#">15</a>
+            </span>
+          </div>
+        </div>
+        <div class="tags">
+          <a href="#">Lorem.</a>
+          <a href="#">Perspiciatis!</a>
+          <a href="#">Fugit!</a>
+        </div>
+      </article>
 
-  <div ng-include="'app/components/navbar/navbar.html'"></div>
+      <article>
+        
+        <h2>
+          <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quod fugit eveniet.</a>
+        </h2>
+        
+        <div class="img text-center">
+          <a href="#">
+            <img src="/images/image.jpeg" alt="">
+          </a>
+        </div>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam iusto vero debitis, deleniti error consequuntur soluta quam aut velit dolore reprehenderit fugit quod totam in!</p>
+        
+        <div class="action clearfix">
+          <div class="left-half text-left">
+            <a href="#" class="next">Читать далее &#8594;</a>
+          </div>
+          <div class="right-half text-right">
+            <span class="time">1 May 2015</span>
+            <span class="comments">
+              <a href="#">15</a>
+            </span>
+          </div>
+        </div>
+        <div class="tags">
+          <a href="#">Lorem.</a>
+          <a href="#">Perspiciatis!</a>
+          <a href="#">Fugit!</a>
+        </div>
+      </article>
 
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-  </div>
+      <div class="paginator text-center">
+        <ul class="pagination">
+          <li><a href="#">&laquo;</a></li>
+          <li><a href="#">1</a></li>
+          <li class="active"><a href="#">2</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="widget">
+        <h3>Теги</h3>
+        <div class="tags-block">
+          <a href="#" class="rate-1">news</a>
+          <a href="#" class="rate-2">articles</a>
+          <a href="#" class="rate-3">authors</a>
+          <a href="#" class="rate-2">news</a>
+          <a href="#" class="rate-3">articles</a>
+          <a href="#" class="rate-1">authors</a>
+          <a href="#" class="rate-2">Lorem.</a>
+        </div>
+      </div>
+      <div class="widget">
+        <h3><a href="#">Архив новостей</a></h3>
+        <table class="calendar">
+          <tr>
+            <td class="active"><a href="#">1</a></td>
+            <td><a href="#">2</a></td>
+            <td><a href="#">3</a></td>
+            <td><a href="#">4</a></td>
+            <td><a href="#">5</a></td>
+            <td class="weekend"><a href="#">6</a></td>
+            <td class="weekend"><a href="#">7</a></td>
+          </tr>
+          <tr>
+            <td><a href="#">8</a></td>
+            <td><a href="#">9</a></td>
+            <td><a href="#">10</a></td>
+            <td><a href="#">11</a></td>
+            <td><a href="#">12</a></td>
+            <td class="weekend"><a href="#">13</a></td>
+            <td class="weekend"><a href="#">14</a></td>
+          </tr>
+          <tr>
+            <td><a href="#">15</a></td>
+            <td><a href="#">16</a></td>
+            <td><a href="#">17</a></td>
+            <td><a href="#">18</a></td>
+            <td><a href="#">19</a></td>
+            <td class="weekend"><a href="#">20</a></td>
+            <td class="weekend"><a href="#">21</a></td>
+          </tr>
+          <tr>
+            <td><a href="#">22</a></td>
+            <td><a href="#">23</a></td>
+            <td><a href="#">24</a></td>
+            <td><a href="#">25</a></td>
+            <td><a href="#">26</a></td>
+            <td class="weekend"><a href="#">27</a></td>
+            <td class="weekend"><a href="#">28</a></td>
+          </tr>
+          <tr>
+            <td><a href="#">29</a></td>
+            <td><a href="#">30</a></td>
+            <td><a href="#">31</a></td>
+            <td></td>
+            <td></td>
+            <td class="weekend"></td>
+            <td class="weekend"></td>
+          </tr>
+        </table>
+      </div>
 
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-        <div class="caption">
-          <h3>{{awesomeThing.title}}</h3>
-          <p>{{awesomeThing.description}}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
+      <div class="widget">
+        <h3>Саммое комментируемое</h3>
+        <div class="topic">
+          <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
+          <div class="content clearfix">
+            <div class="left-half">
+              <a href=""><img src="/images/image.jpeg" alt=""></a>
+            </div>
+            <div class="right-half">
+              <div>
+                <span class="time">12.05.2015</span>
+                <span class="comments"><a href="#">12</a></span>
+              </div>
+              <div>
+                <span class="author">John</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic">
+          <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
+          <div class="content clearfix">
+            <div class="left-half">
+              <a href=""><img src="/images/image.jpeg" alt=""></a>
+            </div>
+            <div class="right-half">
+              <div>
+                <span class="time">12.05.2015</span>
+                <span class="comments"><a href="#">12</a></span>
+              </div>
+              <div>
+                <span class="author">John</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <hr>
-
-  <div class="footer">
-    <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-  </div>
-
 </div>
