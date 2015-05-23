@@ -8,6 +8,9 @@ var util = require('util');
 
 var middleware = require('./proxy');
 
+var proxy = require('proxy-middleware');
+var url = require('url');
+
 module.exports = function(options) {
 
   function browserSyncInit(baseDir, browser) {
@@ -19,10 +22,12 @@ module.exports = function(options) {
         '/bower_components': 'bower_components'
       };
     }
-
+    var proxyOptions = url.parse('http://api.puzzle.loc');
+    proxyOptions.route = '/api';
     var server = {
       baseDir: baseDir,
-      routes: routes
+      routes: routes,
+      middleware: [proxy(proxyOptions)]
     };
 
     if(middleware.length > 0) {
