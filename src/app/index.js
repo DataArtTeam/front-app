@@ -12,7 +12,8 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
             controller: 'PageCtrl'
           }).
           otherwise({
-            redirectTo: '/'
+            templateUrl: 'app/notfound/notfound.html',
+            controller: 'NotFoundCtrl'
           });
     $locationProvider.html5Mode({
         enabled: true,
