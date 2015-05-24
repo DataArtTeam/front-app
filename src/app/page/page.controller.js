@@ -1,7 +1,12 @@
 'use strict';
 
-function PageCtrl($scope) {
-    $scope.test = "Hello world";
+function PageCtrl($scope, Post, $stateParams, $state) {
+    Post.get($stateParams).$promise.then(function(result) {
+        $scope.post = result;
+    },
+    function(error) {
+        $state.go('notfound');
+    });
 }
 
 angular.module('puzzle')

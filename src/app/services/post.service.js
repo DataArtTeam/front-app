@@ -2,5 +2,5 @@
 
 angular.module('puzzle')
     .factory('Post', function($resource) {
-        return $resource('/api/posts/:url');
+        return $resource('/api/posts/:node');
     });
