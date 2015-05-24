@@ -9,7 +9,6 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         controller: 'MainCtrl'
       })
       .state('notfound', {
-        // url: '/notfound',
         templateUrl: 'app/notfound/notfound.html',
         controller: 'NotFoundCtrl'
       })
@@ -19,7 +18,7 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         controller: 'NotFoundCtrl'
       })
       .state('page', {
-        url: '/:node',
+        url: '/:node?comments',
         templateUrl: "app/page/page.html",
         controller: "PageCtrl"
       });
