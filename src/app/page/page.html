@@ -7,7 +7,7 @@
               {{post.author.firstname + " " + post.author.lastname}}
             </div>
             <div class="time">
-              {{post.created | date: "d MMMM yyyy"}}
+              {{post.created | date: "dd.MM.yyyy"}}
             </div>
             <div class="comments-container">
               <span class="comments">
@@ -25,7 +25,24 @@
             {{post.text}}
           </div>
           <div class="tags">
+            <span>Метки:</span>
             <a href="#" ng-repeat="tag in post.tag">{{tag.name}}</a>
+          </div>
+          <div class="similar-news row">
+            <div class="col-sm-12 bot-offset-10">Похожие новости:</div>
+            <div class="col-sm-4" ng-repeat="similar in post.similar">
+              <a ui-sref="page({node: similar.url})">
+                <!-- <img ng-src="/images/{{similar.img}}"alt="{{similar.name}}"> -->
+                <img src="http://monk.com.ua/uploads/images/00/00/02/2012/08/30/2b4ab4.jpg" alt="">
+              </a>
+              <h4><a ui-sref="page({node: similar.url})">{{similar.name}}</a></h4>
+              <div class="clearfix">
+                <span class="time">{{similar.created | date: "dd.MM.yyyy"}}</span>
+                <span class="comments">
+                  <a href="#">15</a>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="comments-container">
