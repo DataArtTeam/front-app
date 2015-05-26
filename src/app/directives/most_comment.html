@@ -1,0 +1,20 @@
+<div class="widget">
+  <h3>Саммое комментируемое</h3>
+  <div class="topic" ng-repeat="post in mostCommented">
+    <h4><a ui-sref="page({node: post.url})">{{post.name}}</a></h4>
+    <div class="content clearfix">
+      <div class="left-half">
+        <a iu-sref="page({node: post.url})"><img ng-src="/images/{{post.img}}" alt="{{post.name}}"></a>
+      </div>
+      <div class="right-half">
+        <div>
+          <span class="time">{{post.created | date: "dd.MM.yyyy"}}</span>
+          <span class="comments"><a href="#">12</a></span>
+        </div>
+        <div>
+          <span class="author">{{post.author.firstname + " " + post.author.lastname}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
