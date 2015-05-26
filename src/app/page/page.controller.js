@@ -4,7 +4,7 @@ function PageCtrl($scope, Post, $stateParams, $state) {
     Post.get($stateParams).$promise.then(function(result) {
         $scope.post = result;
     },
-    function(error) {
+    function() {
         $state.go('notfound');
     });
 }

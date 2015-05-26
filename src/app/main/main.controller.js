@@ -4,7 +4,7 @@ function MainCtrl($scope, Post, $state) {
 
     Post.query().$promise.then(function(result) {
         $scope.posts = result;
-    }, function(error) {
+    }, function() {
         $state.go('notfound');
     });
 }

@@ -1,104 +1,68 @@
 <div class="content">
-    <div class="container row">
-      <div class="col-sm-9">
-        <div class="page">
-          <div class="about-container">
-            <div class="author">
-              {{post.author.firstname + " " + post.author.lastname}}
-            </div>
-            <div class="time">
-              {{post.created | date: "dd.MM.yyyy"}}
-            </div>
-            <div class="comments-container">
+  <div class="container row">
+    <div class="col-sm-9">
+      <div class="page">
+        <div class="about-container">
+          <div class="author">
+            {{post.author.firstname + " " + post.author.lastname}}
+          </div>
+          <div class="time">
+            {{post.created | date: "dd.MM.yyyy"}}
+          </div>
+          <div class="comments-container">
+            <span class="comments">
+              <a ui-sref="page({node: post.url, comments: 1})">15</a>
+            </span>
+          </div>
+        </div>
+        <h1>{{post.name}}</h1>
+        <div class="img text-center">
+          <a href="#">
+            <img ng-src="/images/{{post.img}}" alt="{{post.name}}">
+          </a>
+        </div>
+        <div class="content">
+          {{post.text}}
+        </div>
+        <div class="tags">
+          <span>Метки:</span>
+          <a href="#" ng-repeat="tag in post.tag">{{tag.name}}</a>
+        </div>
+        <div class="similar-news row">
+          <div class="col-sm-12 bot-offset-10">Похожие новости:</div>
+          <div class="col-sm-4" ng-repeat="similar in post.similar">
+            <a ui-sref="page({node: similar.url})">
+              <!-- <img ng-src="/images/{{similar.img}}"alt="{{similar.name}}"> -->
+              <img ng-src="http://monk.com.ua/uploads/images/00/00/02/2012/08/30/2b4ab4.jpg" alt="">
+            </a>
+            <h4><a ui-sref="page({node: similar.url})">{{similar.name}}</a></h4>
+            <div class="clearfix">
+              <span class="time">{{similar.created | date: "dd.MM.yyyy"}}</span>
               <span class="comments">
-                <a ui-sref="page({node: post.url, comments: 1})">15</a>
+                <a href="#">15</a>
               </span>
             </div>
           </div>
-          <h1>{{post.name}}</h1>
-          <div class="img text-center">
-            <a href="#">
-              <img ng-src="/images/{{post.img}}" alt="{{post.name}}">
-            </a>
-          </div>
-          <div class="content">
-            {{post.text}}
-          </div>
-          <div class="tags">
-            <span>Метки:</span>
-            <a href="#" ng-repeat="tag in post.tag">{{tag.name}}</a>
-          </div>
-          <div class="similar-news row">
-            <div class="col-sm-12 bot-offset-10">Похожие новости:</div>
-            <div class="col-sm-4" ng-repeat="similar in post.similar">
-              <a ui-sref="page({node: similar.url})">
-                <!-- <img ng-src="/images/{{similar.img}}"alt="{{similar.name}}"> -->
-                <img src="http://monk.com.ua/uploads/images/00/00/02/2012/08/30/2b4ab4.jpg" alt="">
-              </a>
-              <h4><a ui-sref="page({node: similar.url})">{{similar.name}}</a></h4>
-              <div class="clearfix">
-                <span class="time">{{similar.created | date: "dd.MM.yyyy"}}</span>
-                <span class="comments">
-                  <a href="#">15</a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="comments-container">
-          disqus container
         </div>
       </div>
-      <div class="col-sm-3">
-        <div class="widget">
-          <h3>Теги</h3>
-          <div class="tags-block">
-            <a href="#" class="rate-1">news</a>
-            <a href="#" class="rate-2">articles</a>
-            <a href="#" class="rate-3">authors</a>
-            <a href="#" class="rate-2">news</a>
-            <a href="#" class="rate-3">articles</a>
-            <a href="#" class="rate-1">authors</a>
-            <a href="#" class="rate-2">Lorem.</a>
-          </div>
-        </div>
-        <div class="widget">
-          <h3>Саммое комментируемое</h3>
-          <div class="topic">
-            <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-            <div class="content clearfix">
-              <div class="left-half">
-                <a href=""><img src="/images/image.jpeg" alt=""></a>
-              </div>
-              <div class="right-half">
-                <div>
-                  <span class="time">12.05.2015</span>
-                  <span class="comments"><a href="#">12</a></span>
-                </div>
-                <div>
-                  <span class="author">John</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="topic">
-            <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-            <div class="content clearfix">
-              <div class="left-half">
-                <a href=""><img src="/images/image.jpeg" alt=""></a>
-              </div>
-              <div class="right-half">
-                <div>
-                  <span class="time">12.05.2015</span>
-                  <span class="comments"><a href="#">12</a></span>
-                </div>
-                <div>
-                  <span class="author">John</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="comments-container">
+        disqus container
       </div>
     </div>
+    <div class="col-sm-3">
+      <div class="widget">
+        <h3>Теги</h3>
+        <div class="tags-block">
+          <a href="#" class="rate-1">news</a>
+          <a href="#" class="rate-2">articles</a>
+          <a href="#" class="rate-3">authors</a>
+          <a href="#" class="rate-2">news</a>
+          <a href="#" class="rate-3">articles</a>
+          <a href="#" class="rate-1">authors</a>
+          <a href="#" class="rate-2">Lorem.</a>
+        </div>
+      </div>
+      <div most-comments></div>
+    </div>
   </div>
+</div>
