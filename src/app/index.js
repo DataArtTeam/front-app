@@ -10,12 +10,10 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
       })
       .state('notfound', {
         templateUrl: 'app/notfound/notfound.html',
-        controller: 'NotFoundCtrl'
       })
       .state('notfound.page', {
-        url: '/notfound',
+        url: '/404',
         templateUrl: 'app/notfound/notfound.html',
-        controller: 'NotFoundCtrl'
       })
       .state('page', {
         url: '/:node?comments',
