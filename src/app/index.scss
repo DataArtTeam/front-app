@@ -183,19 +183,6 @@ nav {
     border-top: 1px solid $border-color;
     position: relative;
 
-    .featured {
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding: 3px 5px;
-      background: $header-color;
-      color: $white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
-      & + h2 {
-        margin-top: 30px;
-      }
-    }
-
     h2 {
       font-size: 1.5em;
       a {
@@ -463,6 +450,61 @@ nav {
 
 .bot-offset-10 {
   margin-bottom: 10px;
+}
+.footer-menu {
+  a {
+    color: $main-link-hover;
+    text-decoration: none;
+    transition: color .2s ease;
+    &:hover {
+      color: $main-link-color;
+    }
+  }
+}
+.suficiency-pages {
+  position: relative;
+  img {
+    width: 100%;
+  }
+  & > div {
+    padding: 0;
+    border: 1px solid $white;
+    position: relative;
+
+    p {
+      background: rgba(0,0,0,.5);
+      color: $white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      padding: 5px;
+      width: 100%;
+      font-size: 0.8em;
+    }
+
+    &:hover p {
+      background: rgba(0,0,0,.9);
+    }
+    .comments {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .featured {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    padding: 3px 5px;
+    background: $header-color;
+    color: $white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+    z-index: 5;
+    & + h2 {
+      margin-top: 30px;
+    }
+  }
 }
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject

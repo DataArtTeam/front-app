@@ -1,0 +1,12 @@
+<div class="col-sm-12 suficiency-pages">
+    <span class="featured">Новость дня</span>
+    <div class="col-sm-3" ng-repeat="post in pages">
+        <a ui-sref="page({node: post.url})">
+            <img ng-src="post.img" alt="{{post.name}}">
+            <p>{{post.name}}</p>
+        </a>
+        <span class="comments">
+          <a href="#">15</a>
+        </span>
+    </div>
+</div>
