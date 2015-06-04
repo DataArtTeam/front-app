@@ -4,11 +4,14 @@
     <h4><a ui-sref="page({node: post.url})">{{post.name}}</a></h4>
     <div class="content clearfix">
       <div class="left-half">
-        <a iu-sref="page({node: post.url})"><img ng-src="/images/{{post.img}}" alt="{{post.name}}"></a>
+        <a iu-sref="page({node: post.url})">
+          <!-- <img ng-src="/images/{{post.img}}" alt="{{post.name}}"> -->
+          <img ng-src="http://portalcats.com/sites/default/files/imagecache/node-gallery-display/gallerys/blackcat004_0.jpg" alt="">
+        </a>
       </div>
       <div class="right-half">
         <div>
-          <span class="time">{{post.created | date: "dd.MM.yyyy"}}</span>
+          <span class="time">{{post.created * 1000 | date: "dd.MM.yyyy"}}</span>
           <span class="comments"><a href="#">12</a></span>
         </div>
         <div>
