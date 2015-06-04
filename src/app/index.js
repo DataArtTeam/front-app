@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap','ngDisqus'])
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $disqusProvider) {
+    $disqusProvider.setShortname('puzzlr');
     $stateProvider
       .state('home', {
         url: '/',
@@ -14,6 +15,16 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
       .state('notfound.page', {
         url: '/404',
         templateUrl: 'app/notfound/notfound.html',
+      })
+      .state('about', {
+        url: '/about',
+        templateUrl: 'app/static/about.html',
+        controller: 'StaticCtrl'
+      })
+      .state('contacts', {
+        url: '/contacts',
+        templateUrl: 'app/static/contacts.html',
+        controller: 'StaticCtrl'
       })
       .state('page', {
         url: '/:node?comments',
