@@ -275,12 +275,16 @@ nav {
       h4 {
         a {
           color: $main-color;
-          font-size: 1em;
+          font-size: .85em;
           text-decoration: none;
           &:hover {
             color: $main-link-color;
           }
         }
+      }
+
+      .author {
+        font-size: 0.8em;
       }
 
       .left-half {
