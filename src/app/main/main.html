@@ -1,37 +1,7 @@
 <div class="content" ng-controller="MainCtrl">
   <div class="container row">
+    <div fitted-pages></div>
     <div class="col-sm-9">
-      <article>
-        <span class="featured">Новость дня</span>
-        <h2>
-          <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quod fugit eveniet.</a>
-        </h2>
-        
-        <div class="img text-center">
-          <a href="#">
-            <img src="/images/image.jpeg" alt="">
-          </a>
-        </div>
-        
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam iusto vero debitis, deleniti error consequuntur soluta quam aut velit dolore reprehenderit fugit quod totam in!</p>
-        
-        <div class="action clearfix">
-          <div class="left-half text-left">
-            <a href="#" class="next">Читать далее &#8594;</a>
-          </div>
-          <div class="right-half text-right">
-            <span class="time">1 May 2015</span>
-            <span class="comments">
-              <a href="#">15</a>
-            </span>
-          </div>
-        </div>
-        <div class="tags">
-          <a href="#">Lorem.</a>
-          <a href="#">Perspiciatis!</a>
-          <a href="#">Fugit!</a>
-        </div>
-      </article>
 
       <article ng-repeat="post in posts">
         
@@ -43,7 +13,7 @@
         
         <div class="img text-center">
           <a ui-sref="page({node: post.url})">
-            <img ng-src="/images/image.jpeg" alt="{{post.name}}">
+            <img ng-src="{{post.img}}" alt="{{post.name}}">
           </a>
         </div>
         
@@ -54,9 +24,9 @@
             <a ui-sref="page({node: post.url})" class="next">Читать далее &#8594;</a>
           </div>
           <div class="right-half text-right">
-            <span class="time">{{post.created | date: 'd MMMM yyyy'}}</span>
+            <span class="time">{{post.created * 1000 | date: 'd.MM.yyyy'}}</span>
             <span class="comments">
-              <a ui-sref="page({node: post.url, comments: 1})">15</a>
+              <a ui-sref="page({node: post.url, comments: 1})" data-disqus-identifier="{{post.id}}">0</a>
             </span>
           </div>
         </div>
@@ -65,18 +35,20 @@
         </div>
       </article>
 
-      <div class="paginator text-center">
+      <div class="paginator text-center" ng-show="count > num">
         <ul class="pagination">
-          <li><a href="#">&laquo;</a></li>
-          <li><a href="#">1</a></li>
-          <li class="active"><a href="#">2</a></li>
-          <li><a href="#">&raquo;</a></li>
+          <li ng-class="{true: 'disabled'}[prevPage === 1]"><a ui-sref="homePage({page: prevPage})">&laquo;</a></li>
+          <li ng-repeat="(key, value) in pageCountsArr() track by $index" ng-class="{true: 'active'}[($index+1) === page]">
+            <a ui-sref="homePage({page: $index+1})">{{$index+1}}</a>
+          </li>
+          <li ng-class="{false: 'disabled'}[nextPage === pageCount]"><a ui-sref="homePage({page: nextPage})">&raquo;</a></li>
         </ul>
       </div>
     </div>
     <div class="col-sm-3">
       <div tags></div>
-      <div most-comments></div>
+      <!-- <div most-comments></div> -->
     </div>
   </div>
 </div>
+<div ng-include="'app/components/footer_menu/footer_menu.html'"></div>

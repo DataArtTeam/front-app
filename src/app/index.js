@@ -7,7 +7,14 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        title: 'Puzzle'
+      })
+      .state('homePage', {
+        url: '/page/:page',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainCtrl',
+        title: 'Puzzle'
       })
       .state('notfound', {
         templateUrl: 'app/notfound/notfound.html',
@@ -17,25 +24,37 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/notfound/notfound.html',
       })
       .state('about', {
-        url: '/about',
+        url: 'about',
         templateUrl: 'app/static/about.html',
-        controller: 'StaticCtrl'
+        controller: 'StaticCtrl',
+        title: 'О нас'
       })
       .state('contacts', {
         url: '/contacts',
         templateUrl: 'app/static/contacts.html',
-        controller: 'StaticCtrl'
+        controller: 'StaticCtrl',
+        title: 'Контакты'
       })
       .state('page', {
-        url: '/:node?comments',
+        url: '/:node',
         templateUrl: "app/page/page.html",
         controller: "PageCtrl"
       });
     $urlRouterProvider.when('', '/');
-    $urlRouterProvider.otherwise('/notfound');
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
+    $urlRouterProvider.otherwise('/404');
+    $locationProvider.hashPrefix('!');
+    // $locationProvider.html5Mode({
+    //   enabled: true,
+    //   requireBase: false
+    // });
   })
+
+  .run(function ($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function(event) {
+      $rootScope.title = $state.current.title || 'Puzzle';
+      $rootScope.kwds = $state.current.kwds || 'Puzzle';
+      $rootScope.descr = $state.current.descr || 'Puzzle';
+    });
+    
+  });
 ;

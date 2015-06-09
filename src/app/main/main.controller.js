@@ -1,12 +1,33 @@
 'use strict';
 
-function MainCtrl($scope, Post, $state) {
+function MainCtrl($scope, Posts, $state, Search, ReloadCount, $stateParams) {
 
-    Post.query().$promise.then(function(result) {
+    var pageCount;
+    $scope.page = parseInt($stateParams.page) || 1;
+    $scope.count = 101;
+    $scope.num = 20;
+
+    pageCount = Math.floor($scope.count / $scope.num);
+    if($scope.count % $scope.num > 0) {
+        pageCount += 1;
+    }
+    $scope.pageCount = pageCount;
+    $scope.pageCountsArr = function () {
+        return new Array(pageCount);
+    };
+
+    $scope.nextPage = (pageCount === $scope.page) ? pageCount : $scope.page+1;
+    $scope.prevPage = ($scope.page === 1) ? 1 : $scope.page-1;
+
+    Posts.query({page: $scope.page}).$promise.then(function(result) {
         $scope.posts = result;
+
+        ReloadCount.reload();
     }, function() {
         $state.go('notfound');
     });
+
+    // Search.query({w: "test25", id: "1,2,3"}).$promise.then(function(result){console.log(result)});
 }
 angular.module('puzzle')
     .controller('MainCtrl', MainCtrl);
