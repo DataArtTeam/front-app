@@ -2,5 +2,5 @@
 
 angular.module('puzzle')
     .factory('Tags', function($resource) {
-        return $resource('/api/tags');
+        return $resource('/api/alltags');
     });
