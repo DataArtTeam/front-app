@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap','ngDisqus'])
+angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'ngDisqus', 'ngSocial'])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $disqusProvider) {
     $disqusProvider.setShortname('puzzlr');
     $stateProvider
@@ -39,6 +39,11 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         url: '/:node',
         templateUrl: "app/page/page.html",
         controller: "PageCtrl"
+      })
+      .state('pageComments', {
+        url: '/:node#disqus_thread',
+        templateUrl: 'app/page/page.html',
+        controller: 'PageCtrl'
       });
     $urlRouterProvider.when('', '/');
     $urlRouterProvider.otherwise('/404');
