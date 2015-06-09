@@ -7,18 +7,18 @@
             {{post.author.firstname + " " + post.author.lastname}}
           </div>
           <div class="time">
-            {{post.created | date: "dd.MM.yyyy"}}
+            {{post.created * 1000 | date: "dd.MM.yyyy"}}
           </div>
           <div class="comments-container">
             <span class="comments">
-              <a ui-sref="page({node: post.url, comments: 1})">15</a>
+              <a ui-sref="page({node: post.url, comments: 1})" data-disqus-identifier="{{post.id}}" class="disqus-comment-count">0</a>
             </span>
           </div>
         </div>
         <h1>{{post.name}}</h1>
         <div class="img text-center">
           <a href="#">
-            <img ng-src="/images/{{post.img}}" alt="{{post.name}}">
+            <img ng-src="{{post.img}}" alt="{{post.name}}">
           </a>
         </div>
         <div class="content">
@@ -32,37 +32,26 @@
           <div class="col-sm-12 bot-offset-10">Похожие новости:</div>
           <div class="col-sm-4" ng-repeat="similar in post.similar">
             <a ui-sref="page({node: similar.url})">
-              <!-- <img ng-src="/images/{{similar.img}}"alt="{{similar.name}}"> -->
-              <img ng-src="http://monk.com.ua/uploads/images/00/00/02/2012/08/30/2b4ab4.jpg" alt="">
+              <img ng-src="{{similar.img}}"alt="{{similar.name}}">
             </a>
             <h4><a ui-sref="page({node: similar.url})">{{similar.name}}</a></h4>
             <div class="clearfix">
-              <span class="time">{{similar.created | date: "dd.MM.yyyy"}}</span>
+              <span class="time">{{similar.created * 1000 | date: "dd.MM.yyyy"}}</span>
               <span class="comments">
-                <a href="#">15</a>
+                <a ui-sref="page({node: similar.url})" data-disqus-identifier="{{similar.id}}">0</a>
               </span>
             </div>
           </div>
         </div>
       </div>
       <div class="comments-container">
-        disqus container
+        <div disqus="post.id"></div>
       </div>
     </div>
     <div class="col-sm-3">
-      <div class="widget">
-        <h3>Теги</h3>
-        <div class="tags-block">
-          <a href="#" class="rate-1">news</a>
-          <a href="#" class="rate-2">articles</a>
-          <a href="#" class="rate-3">authors</a>
-          <a href="#" class="rate-2">news</a>
-          <a href="#" class="rate-3">articles</a>
-          <a href="#" class="rate-1">authors</a>
-          <a href="#" class="rate-2">Lorem.</a>
-        </div>
-      </div>
-      <div most-comments></div>
+      <div tags></div>
+      <!-- <div most-comments></div> -->
     </div>
   </div>
 </div>
+<div ng-include="'app/components/footer_menu/footer_menu.html'"></div>
