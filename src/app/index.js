@@ -35,6 +35,11 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         controller: 'StaticCtrl',
         title: 'Контакты'
       })
+      .state('search', {
+        url: '/search/:page?word&id',
+        templateUrl: 'app/search/search.html',
+        title: 'Результаты поиска'
+      })
       .state('page', {
         url: '/:node',
         templateUrl: "app/page/page.html",

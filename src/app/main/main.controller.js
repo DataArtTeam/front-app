@@ -27,7 +27,6 @@ function MainCtrl($scope, Posts, $state, Search, ReloadCount, $stateParams) {
         $state.go('notfound');
     });
 
-    // Search.query({w: "test25", id: "1,2,3"}).$promise.then(function(result){console.log(result)});
 }
 angular.module('puzzle')
     .controller('MainCtrl', MainCtrl);
