@@ -40,26 +40,27 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: "app/page/page.html",
         controller: "PageCtrl"
       })
-      .state('pageComments', {
-        url: '/:node#disqus_thread',
+      .state('page.comments', {
+        url: '#disqus_thread',
         templateUrl: 'app/page/page.html',
         controller: 'PageCtrl'
       });
     $urlRouterProvider.when('', '/');
     $urlRouterProvider.otherwise('/404');
     $locationProvider.hashPrefix('!');
-    // $locationProvider.html5Mode({
-    //   enabled: true,
-    //   requireBase: false
-    // });
   })
 
-  .run(function ($rootScope, $state) {
+  .run(function ($rootScope, $state, $window) {
     $rootScope.$on('$stateChangeStart', function(event) {
       $rootScope.title = $state.current.title || 'Puzzle';
       $rootScope.kwds = $state.current.kwds || 'Puzzle';
       $rootScope.descr = $state.current.descr || 'Puzzle';
     });
+    $window.disqus_config = function() {
+      this.callbacks.onReady = [function() {
+        $rootScope.$emit('disqus.load', true);
+      }];
+    }
     
   });
 ;
