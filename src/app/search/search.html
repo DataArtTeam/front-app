@@ -23,6 +23,7 @@
             <a ui-sref="page({node: post.url})" class="next">Читать далее &#8594;</a>
           </div>
           <div class="right-half text-right">
+            <span class="author">{{post.author.firstname + " " + post.author.lastname}}</span>
             <span class="time">{{post.created * 1000 | date: 'd.MM.yyyy'}}</span>
             <span class="comments">
               <a ui-sref="page.comments({node: post.url})" data-disqus-identifier="{{post.id}}">0</a>
