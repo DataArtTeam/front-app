@@ -26,7 +26,7 @@
         </div>
         <div class="tags">
           <span>Метки:</span>
-          <a href="#" ng-repeat="tag in post.tag">{{tag.name}}</a>
+          <a ui-sref="search({id: tag.id})" ng-repeat="tag in post.tag">{{tag.name}}</a>
         </div>
         <div class="social_buttons">
           <ul ng-social-buttons

@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="tags">
-          <a ng-repeat="tag in post.tag" href="#">{{tag.name}}</a>
+          <a ng-repeat="tag in post.tag" ui-sref="search({id: tag.id})">{{tag.name}}</a>
         </div>
       </article>
 

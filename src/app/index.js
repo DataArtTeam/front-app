@@ -24,7 +24,7 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/notfound/notfound.html',
       })
       .state('about', {
-        url: 'about',
+        url: '/about',
         templateUrl: 'app/static/about.html',
         controller: 'StaticCtrl',
         title: 'О нас'
