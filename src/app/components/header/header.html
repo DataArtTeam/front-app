@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="container">
+  <div class="container" ng-controller="HeaderCtrl">
     <div class="logo">
       <a ui-sref="home">
         Puzzle
@@ -7,7 +7,8 @@
       </a>
     </div>
     <div class="search text-right">
-      <input type="text" placeholder="search">
+      <input type="text" placeholder="search" ng-model="searchWord" ng-enter="searchAction()">
+      <button ng-click="searchAction()" class="fa fa-search"></button>
     </div>
   </div>
 </header>

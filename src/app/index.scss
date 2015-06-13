@@ -89,6 +89,7 @@ ul {
     display: inline-block;
     width: 74%;
     vertical-align: center;
+    position: relative;
 
     input {
       border-radius: 7px;
@@ -103,6 +104,21 @@ ul {
          opacity:  0.8;
       }
 
+    }
+
+    button {
+      border: none;
+      background: none;
+      color: $header-color;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -0.5em;
+      opacity: .85;
+      transition: opacity ease .2s;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
@@ -138,6 +154,11 @@ nav {
   }
 
   .time {
+    font-size: .8em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .author {
     font-size: .8em;
     display: inline-block;
     vertical-align: middle;
@@ -311,6 +332,16 @@ nav {
         }
       }
 
+    }
+
+    .tags-all {
+      color: $main-link-hover;
+      background: #fff;
+      transition: color ease .2s;
+      margin-top: 5px;
+      &:hover {
+        color: $main-link-color;
+      }
     }
   }
   .calendar {
@@ -511,6 +542,69 @@ nav {
     z-index: 5;
     & + h2 {
       margin-top: 30px;
+    }
+  }
+}
+
+.puzzle-modal-body {
+  input {
+    width: 100%;
+    border: 1px solid #CDCDCD;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 10px;
+    transition: all ease .3s;
+    margin: 10px 0;
+
+    &:focus {
+      border-color: $header-color;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.06);
+    }
+  }
+  .tags {
+    label {
+      color: $main-link-color;
+      padding: 5px;
+      border: transparent;
+      text-decoration: none;
+      margin: 3px;
+      transition: all ease .1s;
+      cursor: pointer;
+      font-weight: normal;
+
+      &.active {
+        color: $white;
+        background-color: $header-color;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+        border-radius: 1px;
+      }
+
+      input {
+        display: none;
+      }
+    }
+  }
+
+  .search-btn {
+    background-color: $header-color;
+    color: $white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    opacity: .85;
+    transition: opacity ease .3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .cancel-btn {
+    background-color: $main-link-hover;
+    color: $white;
+    text-shadow: 1px 1px 3px rgba(0,0,0, 0.25);
+    opacity: .85;
+    transition: opacity ease .3s;
+
+    &:hover {
+      opacity: 1;
     }
   }
 }

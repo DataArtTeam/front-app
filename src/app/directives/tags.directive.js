@@ -5,14 +5,8 @@ angular.module('puzzle')
         return {
             restrict: 'A',
             templateUrl: 'app/directives/tags.html',
-            controller: function($scope, Tags, $state) {
-                
-                Tags.query().$promise.then(function(result) {
-                    $scope.tag = result;
-                }, function() {
-                    $state.go('notfound');
-                });
-
+            controller: function($scope, $rootScope) {
+                $scope.tag = $rootScope.tags;
             }
         };
     });

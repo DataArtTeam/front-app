@@ -1,0 +1,14 @@
+<div class="modal-body puzzle-modal-body">
+    <h3 class="modal-title text-center">Enter search word and/or choose tags</h3>
+    <input type="text" placeholder="search" ng-model="searchWord" ng-enter="ok()">
+    <div class="tags">
+        <h4>Tags:</h4>
+        <label ng-repeat="value in tags track by $index" for="tag-{{value.id}}" ng-class="{true: 'active'}[value.active]">
+            {{value.name}}
+            <input type="checkbox" id="tag-{{value.id}}" ng-model="value.active">
+        </label>
+    </div>
+    <br />
+    <button class="search-btn btn" ng-click="ok()">Search</button>
+    <button class="btn cancel-btn" ng-click="cancel()">Cancel</button>
+</div>

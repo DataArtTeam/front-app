@@ -36,7 +36,7 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         title: 'Контакты'
       })
       .state('search', {
-        url: '/search/:page?word&id',
+        url: '/search/:page?w=&id',
         templateUrl: 'app/search/search.html',
         title: 'Результаты поиска'
       })
@@ -55,7 +55,7 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
     $locationProvider.hashPrefix('!');
   })
 
-  .run(function ($rootScope, $state, $window) {
+  .run(function ($rootScope, $state, $window, Tags, $stateParams, $modal) {
     $rootScope.$on('$stateChangeStart', function(event) {
       $rootScope.title = $state.current.title || 'Puzzle';
       $rootScope.kwds = $state.current.kwds || 'Puzzle';
@@ -66,6 +66,20 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         $rootScope.$emit('disqus.load', true);
       }];
     }
+
+    Tags.query().$promise.then(function(result) {
+        $rootScope.tags = result;
+    }, function() {
+        $state.go('notfound');
+    });
+
+    $rootScope.openSearchModal = function () {
+        var modalInstance = $modal.open({
+          animation: true,
+          templateUrl: 'app/components/search_modal/search_modal.html',
+          controller: 'SearchModalCtrl'
+        });
+    };
     
   });
 ;

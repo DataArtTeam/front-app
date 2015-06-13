@@ -3,4 +3,7 @@
   <div class="tags-block">
     <a ui-sref="search({id: tg.id})" class="rate-2" ng-repeat="tg in tag">{{tg.name}}</a>
   </div>
+  <div class="text-center">
+    <button class="tags-all" ng-click="openSearchModal()">See all</button>
+  </div>
 </div>
