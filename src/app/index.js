@@ -18,10 +18,12 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
       })
       .state('notfound', {
         templateUrl: 'app/notfound/notfound.html',
+        controller: 'NotfoundCtrl'
       })
       .state('notfound.page', {
         url: '/404',
         templateUrl: 'app/notfound/notfound.html',
+        controller: 'NotfoundCtrl'
       })
       .state('about', {
         url: '/about',
