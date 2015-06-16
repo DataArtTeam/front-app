@@ -1,4 +1,4 @@
-'use sctrict';
+'use strict';
 
 angular.module('puzzle')
 	.controller('NotfoundCtrl', function ($scope, $window) {

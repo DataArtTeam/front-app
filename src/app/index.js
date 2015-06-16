@@ -60,8 +60,6 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
   .run(function ($rootScope, $state, $window, Tags, $stateParams, $modal) {
     $rootScope.$on('$stateChangeStart', function(event) {
       $rootScope.title = $state.current.title || 'Puzzle';
-      $rootScope.kwds = $state.current.kwds || 'Puzzle';
-      $rootScope.descr = $state.current.descr || 'Puzzle';
     });
     $window.disqus_config = function() {
       this.callbacks.onReady = [function() {
