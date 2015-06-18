@@ -1,0 +1,66 @@
+<div class="content">
+  <div class="container row">
+    <div class="col-sm-9">
+      <div class="page">
+        <div class="about-container">
+          <div class="author">
+            {{post.author.firstname + " " + post.author.lastname}}
+          </div>
+          <div class="time">
+            {{post.created}}
+          </div>
+          <div class="comments-container">
+            <span class="comments">
+              <a ui-sref="page.comments({node: post.url})" data-disqus-identifier="{{post.id}}" class="disqus-comment-count">0</a>
+            </span>
+          </div>
+        </div>
+        <h1 ng-bind-html="post.name"></h1>
+        <div class="img text-center">
+          <a href="#">
+            <img ng-src="{{post.img}}" alt="{{post.name}}">
+          </a>
+        </div>
+        <div class="content" ng-bind-html="post.text | rawHtml"></div>
+        <div class="tags">
+          <span>Tags:</span>
+          <a ui-sref="search({id: tag.id})" ng-repeat="tag in post.tag">{{tag.name}}</a>
+        </div>
+        <div class="social_buttons">
+          <ul ng-social-buttons
+              data-url="absUrl"
+              data-title="post.title"
+              data-description="post.description"
+              data-image="post.img">
+              <li class="ng-social-facebook">Facebook</li>
+              <li class="ng-social-vk">Вконтакте</li>
+              <li class="ng-social-google-plus">Google+</li>
+              <li class="ng-social-twitter">Twitter</li>
+              
+          </ul>
+        </div>
+        <div class="similar-news row">
+          <div class="col-sm-12 bot-offset-10">Similar news:</div>
+          <div class="col-sm-4" ng-repeat="similar in post.similar">
+            <a ui-sref="page({node: similar.url})">
+              <img ng-src="{{similar.img}}"alt="{{similar.name}}">
+            </a>
+            <h4><a ui-sref="page({node: similar.url})" ng-bind-html="similar.name"></a></h4>
+            <div class="clearfix">
+              <span class="time">{{similar.created * 1000 | date: "dd.MM.yyyy"}}</span>
+              <span class="comments">
+                <a ui-sref="page.comments({node: similar.url})" data-disqus-identifier="{{similar.id}}">0</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" id="disqus_comment">
+        <div disqus="post.id"></div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div tags></div>
+    </div>
+  </div>
+</div>

@@ -42,6 +42,11 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         templateUrl: 'app/search/search.html',
         title: 'Search results'
       })
+      .state('preview', {
+        url: '/preview/:key',
+        templateUrl: 'app/preview/preview.html',
+        controller: 'PreviewCtrl'
+      })
       .state('page', {
         url: '/:node',
         templateUrl: "app/page/page.html",
