@@ -29,18 +29,18 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         url: '/about',
         templateUrl: 'app/static/about.html',
         controller: 'StaticCtrl',
-        title: 'О нас'
+        title: 'About'
       })
       .state('contacts', {
         url: '/contacts',
         templateUrl: 'app/static/contacts.html',
         controller: 'StaticCtrl',
-        title: 'Контакты'
+        title: 'Contacts'
       })
       .state('search', {
         url: '/search/:page?w=&id',
         templateUrl: 'app/search/search.html',
-        title: 'Результаты поиска'
+        title: 'Search results'
       })
       .state('page', {
         url: '/:node',

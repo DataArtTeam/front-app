@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('puzzle')
-    .controller('SearchCtrl', function($scope, Search, $stateParams, $state, ReloadCount) {
+    .controller('SearchCtrl', function($scope, Search, $stateParams, $state, ReloadCount, $rootScope, Tags, $filter) {
         
         Search.query($stateParams).$promise.then(function(result) {
             $scope.posts = result;
@@ -24,5 +24,19 @@ angular.module('puzzle')
 
         $scope.nextPage = (pageCount === $scope.page) ? pageCount : $scope.page+1;
         $scope.prevPage = ($scope.page === 1) ? 1 : $scope.page-1;
+
+        $scope.tags = [];
+        if($stateParams.id) {
+
+            $scope.selectedTags = $stateParams.id.split(',');
+            Tags.query().$promise.then(function(result) {
+                $scope.tags = $filter('getById')(result, $scope.selectedTags);
+            }, function() {
+                $state.go('notfound');
+            });
+        
+        }
+        
+        $scope.searchWord = $stateParams.w;
         
     });

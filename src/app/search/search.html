@@ -1,7 +1,13 @@
 <div class="content" ng-controller="SearchCtrl">
   <div class="container row">
     <div class="col-sm-9">
-      <h1>Результаты поиска</h1>
+      <h1>Result search by</h1>
+      <div class="search-by">
+        <div>{{searchWord}}</div>
+        <div class="tags">
+          <a ng-repeat="tag in tags" ui-sref="search({id: tag.id})">{{tag.name}}</a>
+        </div>
+      </div>
       <article ng-repeat="post in posts">
         
         <h2>
@@ -31,7 +37,7 @@
           </div>
         </div>
         <div class="tags">
-          <a ng-repeat="tag in post.tag" href="#">{{tag.name}}</a>
+          <a ng-repeat="tag in post.tag" ui-sref="search({id: tag.id})">{{tag.name}}</a>
         </div>
       </article>
 
