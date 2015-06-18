@@ -6,8 +6,7 @@
       <article ng-repeat="post in posts">
         
         <h2>
-          <a ui-sref="page({node: post.url})">
-            {{post.name}}
+          <a ui-sref="page({node: post.url})" ng-bind-html="post.name">
           </a>
         </h2>
         
@@ -17,11 +16,11 @@
           </a>
         </div>
         
-        <p>{{post.description}}</p>
+        <p ng-bind-html="post.description"></p>
         
         <div class="action clearfix">
           <div class="left-half text-left">
-            <a ui-sref="page({node: post.url})" class="next">Читать далее &#8594;</a>
+            <a ui-sref="page({node: post.url})" class="next">Read more &#8594;</a>
           </div>
           <div class="right-half text-right">
             <span class="author">{{post.author.firstname + " " + post.author.lastname}}</span>
@@ -48,7 +47,6 @@
     </div>
     <div class="col-sm-3">
       <div tags></div>
-      <!-- <div most-comments></div> -->
     </div>
   </div>
 </div>

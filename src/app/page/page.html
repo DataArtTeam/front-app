@@ -15,17 +15,15 @@
             </span>
           </div>
         </div>
-        <h1>{{post.name}}</h1>
+        <h1 ng-bind-html="post.name"></h1>
         <div class="img text-center">
           <a href="#">
             <img ng-src="{{post.img}}" alt="{{post.name}}">
           </a>
         </div>
-        <div class="content">
-          {{post.text}}
-        </div>
+        <div class="content" ng-bind-html-unsafe="post.text"></div>
         <div class="tags">
-          <span>Метки:</span>
+          <span>Tags:</span>
           <a ui-sref="search({id: tag.id})" ng-repeat="tag in post.tag">{{tag.name}}</a>
         </div>
         <div class="social_buttons">
@@ -42,12 +40,12 @@
           </ul>
         </div>
         <div class="similar-news row">
-          <div class="col-sm-12 bot-offset-10">Похожие новости:</div>
+          <div class="col-sm-12 bot-offset-10">Similar news:</div>
           <div class="col-sm-4" ng-repeat="similar in post.similar">
             <a ui-sref="page({node: similar.url})">
               <img ng-src="{{similar.img}}"alt="{{similar.name}}">
             </a>
-            <h4><a ui-sref="page({node: similar.url})">{{similar.name}}</a></h4>
+            <h4><a ui-sref="page({node: similar.url})" ng-bind-html="similar.name"></a></h4>
             <div class="clearfix">
               <span class="time">{{similar.created * 1000 | date: "dd.MM.yyyy"}}</span>
               <span class="comments">
@@ -63,7 +61,6 @@
     </div>
     <div class="col-sm-3">
       <div tags></div>
-      <!-- <div most-comments></div> -->
     </div>
   </div>
 </div>

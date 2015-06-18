@@ -58,7 +58,7 @@ angular.module('puzzle', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
   })
 
   .run(function ($rootScope, $state, $window, Tags, $stateParams, $modal) {
-    $rootScope.$on('$stateChangeStart', function(event) {
+    $rootScope.$on('$stateChangeSuccess', function(event) {
       $rootScope.title = $state.current.title || 'Puzzle';
     });
     $window.disqus_config = function() {
