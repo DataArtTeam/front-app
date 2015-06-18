@@ -16,7 +16,7 @@
           </a>
         </div>
         
-        <p ng-bind-html="post.description"></p>
+        <p ng-bind-html="post.description | rawHtml"></p>
         
         <div class="action clearfix">
           <div class="left-half text-left">

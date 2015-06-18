@@ -21,7 +21,7 @@
             <img ng-src="{{post.img}}" alt="{{post.name}}">
           </a>
         </div>
-        <div class="content" ng-bind-html-unsafe="post.text"></div>
+        <div class="content" ng-bind-html="post.text | rawHtml"></div>
         <div class="tags">
           <span>Tags:</span>
           <a ui-sref="search({id: tag.id})" ng-repeat="tag in post.tag">{{tag.name}}</a>

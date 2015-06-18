@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('puzzle')
-    .filter('rawHtml', function ($scope) {
+    .filter('rawHtml', function ($sce) {
         return function (val) {
-            return $scope.trustAsHtml(val);
+            return $sce.trustAsHtml(val);
         }
     });
